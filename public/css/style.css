@@ -1,10 +1,12 @@
 *{
     padding: 0;
-    margin: 0;  
+    margin: 0; 
+    /* background-color: #ffffff;  */
 }
 
 .nav {
-    background-color: #436A2D;
+    margin-top: 15px;
+    background-color: #ffffff;
     height: 40px;
     display: flex;
     justify-content: space-around;
@@ -12,13 +14,20 @@
     
 }
 
+.logo{
+    height: 45px;
+    width: 65px;
+    margin-top: 7px;
+    
+}
+
 .anchor {
     text-decoration: none;
-    color: cyan;
+    color:#436A2D;
 }
 
 .spacer {
-    background-color: cyan;
+    /* background-color: cyan; */
     height:100px;
 }
 
@@ -31,8 +40,9 @@
 
 .banner-left {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 8% 5%;
+    /* align-items: center; */
+    /* justify-content: center; */
 }
 
 .banner-right{
@@ -40,10 +50,11 @@
     align-items: center;
 }
 
-.about{
+#about{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 0 10%;
 }
 
 .heading{
@@ -61,11 +72,28 @@ button{
     margin-bottom: 20px;
 }
 
-.footer-top{
+.testimonials{
+    padding: 10px 8%;
     display: flex;
-    flex-direction: row;
+    text-align: center;
+}
+
+.testimonials img{
+    width: 60%;
+    height: auto;
+}
+
+.figure{
+    width: 60%;
+    padding: 15px;
+}
+
+.footer-top{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
     background-color: #615F62;
     color: cyan;
+    padding: 15px 10%;
 }
 
 .footer-center{
@@ -74,10 +102,20 @@ button{
     align-items: center;
 }
 
+.anchor-footer{
+    text-decoration: none;
+    color: #ffffff;
+}
 .footer-right{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     justify-content:space-between;
+    margin: 19px;
+}
+
+.footer-right h4{
+    margin-bottom: 15px;
 }
 
 .footer-bottom{

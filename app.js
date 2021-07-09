@@ -1,4 +1,5 @@
 const express = require("express");
+const mysql = require('mysql');
 
 const app = express();
 
@@ -10,4 +11,10 @@ app.get('/', (req, res) => {
     res.render("index");
 }); 
 
-app.listen(8080);
+app.get('/blog', (req, res) => {
+    res.render("blog");
+});
+
+app.listen(8080 , () => {
+    console.log('App listening on port 8080');
+});

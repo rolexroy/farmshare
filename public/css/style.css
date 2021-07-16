@@ -19,7 +19,7 @@
 .logo{
     height: auto;
     width: 65px;
-    margin-top: 30px;
+    /* margin-top: 3px; */
     
 }
 
@@ -383,8 +383,24 @@ header{
     background: var(--exDark);
 }
 
-.more{
+/* .more{
     background-color: #436A2D;
+} */
+.more{
+    display: none;
+}
+
+button{
+   background-color: #436A2D;
+   border:none;
+   outline: none;
+   color: white;
+   font-size: 30px;
+   padding: 5px;
+}
+
+.text.show-more .moreText{
+    display: inline;
 }
 
 /* about */
@@ -437,6 +453,18 @@ footer{
     font-family: var(--Playfair);
     letter-spacing: 2px;
 }
+
+/* create new blog  */
+
+.heading__margin{
+    margin: 35px;
+}
+
+/* /.container{
+    display: flex;
+    flex-direction: column;
+    /* padding: 0 20%; 
+} */
 
 /* Media Queries */
 @media screen and (min-width: 540px){

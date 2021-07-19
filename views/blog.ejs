@@ -113,7 +113,10 @@
                 <div class = "blog-item">
                     <div class = "blog-img">
                     <!-- <img src = "images/blog/army worm.jpg" alt = ""> -->
-                    <img src = "data:image/png;base64,<%= article.image.toString('base64') %>" alt = "picha goes here">
+                   
+                    <img src = "../uploads/<%= article.image %>" alt = "picha goes here"> 
+                    <!-- <img src="../uploads/24884a1c-e44b-4388-966b-21f7cd596d60-farmer2.jpg" alt="trial"> -->
+
                     <!-- <%= article.image %> -->
                     <span><i class = "far fa-heart"></i></span>
                     </div>

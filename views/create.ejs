@@ -23,11 +23,11 @@
 <!-- Page Header -->
 <h1 class="heading heading__margin">Create New Post</h1>
 <div class="container">
-  <form action="/posts/store" method="POST">
+  <form action="/posts/store" method="POST" enctype="multipart/form-data">
     <input type="text" name="title" placeholder="Title"><br>
     <input type="text" name="description" placeholder="Description"><br>
     <textarea name="content" placeholder="Content ..." cols="30" rows="10" "></textarea>
-    <input type="file" id="myFile" name="image">
+    <input type="file" id="myFile" name="myImage">
     <button>Create Post</button>
     <!-- <input type="submit" value="Create Post"> -->
   </form>  
@@ -61,3 +61,8 @@
 <div class="footer-bottom"> FarmShare &copy; 2021 All rights reserved
 
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous"></script>
+</body>
+</html>

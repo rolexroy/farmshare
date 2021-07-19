@@ -31,11 +31,11 @@
 
     <h2>Edit Item</h2>
 
-    <form action="/update/<%= item.id %>" method="post">
+    <form action="/update/<%= item.id %>" method="POST" enctype="multipart/form-data">
         <div class="form-content">
             <input type="text" name="title" value ="<%= item.title %>">
-            <textarea name="content" value ="<%= item.content%>" cols="30" rows="10" ></textarea>
-            <input type="file" id="myFile" name="image" value="<%= item.image%>">
+            <textarea name="content" id="content" cols="30" rows="10" ></textarea>
+            <input type="file" id="myFile" name="myImage" value="<%= item.image%>">
             <div class="form-btns">
                 <a href="/blog" class="btn">Cancel</a>
                 <input type="submit" class="btn" value = "Save">
@@ -44,5 +44,11 @@
     </form>
 </div>
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous"></script>
+<script>
+   let content = document.getElementById('content');
+   content.value = '<%= item.content %>';
+</script>
 <%- include('partials/footer') %>

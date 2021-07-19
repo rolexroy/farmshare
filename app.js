@@ -1,10 +1,29 @@
 const express = require("express");
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
+const ejs = require('ejs');
+const multer = require('multer');
+const uuid = require('uuid').v4;
 
 const app = express();
-
 app.use(express.static('public'));
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, 'public/uploads');
+    },
+    filename: (req, file, cb) => {
+      const { originalname } = file;
+      cb(null, `${uuid()}-${originalname}`);
+      
+    }
+   
+  });
+const upload = multer({ storage });
+
+
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
@@ -48,11 +67,11 @@ app.get('/blog/new', (req, res) => {
     res.render('create')
 });
 
-app.post('/posts/store', (req, res) => {
+app.post('/posts/store', upload.single('myImage'), (req, res) => {
     let articleName = req.body.title;
+    let image = req.file.filename;
     connection.query('INSERT INTO blog (title, content, image) VALUES (?, ?, ?)',
-    [articleName, req.body.content, req.body.image],
-    
+    [articleName, req.body.content, image],
     
     (error,results) => { 
         if(error){
@@ -64,6 +83,7 @@ app.post('/posts/store', (req, res) => {
         
     });
 });
+
 //view page
 app.get('/post/:id',(req,res) => {
     // get route parameter (id)
@@ -87,11 +107,9 @@ app.get('/post/:id',(req,res) => {
 
 
 // edit page
-app.get('/blog/:id',(req,res) => {
+app.get('/blog/:id', upload.single('myImage') ,(req,res) => {
     // get route parameter (id)
     let id = Number(req.params.id);
-
-    
         connection.query(        
             'SELECT * FROM blog WHERE id = ? ',[id] ,
             (error,results) => {
@@ -102,14 +120,15 @@ app.get('/blog/:id',(req,res) => {
                 // }
             }
         );
-    
 });
 
 //update item
-app.post('/update/:id', (req, res) => {
+app.post('/update/:id', upload.single('myImage'), (req, res) => {
     let title = req.body.title;
+    // console.log(req.file.filename);
     let content = req.body.content;
-    let image = req.body.image;
+    // let image = req.body.image;
+    let image = req.file.filename;
 
     connection.query('UPDATE blog SET title = ?, content = ?, image = ? WHERE id = ? ',
         [title, content, image, req.params.id],

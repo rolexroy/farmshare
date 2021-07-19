@@ -22,7 +22,8 @@
 
     <a href="/blog"><h2></h2>blog</h2></a>
     <h2 class="heading"><%=item.title%></h2>
-    <img src = "data:image/png;base64,<%= item.image.toString('base64') %>" alt = "picha goes here">
+    <!-- <img src = "data:image/png;base64,<%= item.image.toString('base64') %>" alt = "picha goes here"> -->
+    <img src = "../uploads/<%= item.image %>" alt = "picha goes here">
     <p><%= item.content%></p>
     <%= item.date %>
 
